@@ -1,0 +1,35 @@
+<h1 class="my-2 ">Estudiantes</h1>
+<div class="text-end my-4">
+    <button class="btn btn-primary" routerLink="new">
+        nuevo estudiante
+    </button>
+
+</div>
+<div class="container-md my-2">
+    <table class=" table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Grado</th>
+                <th>Grupo</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (student of students; track student.id) {
+            <tr>
+                <td>{{student.nombre}}</td>
+                <td>{{student.grado}}</td>
+                <td>{{student.grupo}}</td>
+                <td class="text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" [routerLink]="['/', student.id, 'edit']">Editar</button>
+                        <button class="btn btn-danger" (click)="delete(student)">Eliminar </button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

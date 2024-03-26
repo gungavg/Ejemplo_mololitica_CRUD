@@ -1,0 +1,35 @@
+<h2>
+    @if (student) {
+    Editar
+    }@else {
+    Nuevo
+    }
+    contacto
+</h2>
+<div>
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <label class="my-3" for="nombre">nombre</label>
+        <input type="text" id="nombre" placeholder="Nombre" class="form-control" formControlName="nombre">
+        <label class="my-3" for="grado">grado</label>
+        <input type="number" id="grado" placeholder="Grado" class="form-control" formControlName="grado">
+        <label class="my-3" for="grupo">grupo</label>
+        <input type="text" id="grupo" placeholder="Grupo" class="form-control" formControlName="grupo">
+
+        <div class="text-end my-2">
+            <button type="button" class="btn btn-danger mx-4" routerLink="/">
+                cancelar
+            </button>
+            <button class="btn btn-primary">
+                @if (student) {
+                Actualizar
+                }@else {
+                crear
+                }
+            </button>
+
+        </div>
+    </form>
+    }
+
+</div>
